@@ -51,6 +51,7 @@ if (codigo == "001" || codigo == "002" || codigo == "003" || codigo == "004") {
     default:
       cuotas = 1;
       total = total;
+      alert("numero de cuotas incorrecto - se realizara el pago en 1 cuota");
       break;
   }
 

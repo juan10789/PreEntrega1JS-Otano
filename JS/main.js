@@ -4,7 +4,18 @@ let codigo = prompt(
 
 let total = 0;
 let precio = 0;
-
+while (
+  codigo !== "001" &&
+  codigo !== "002" &&
+  codigo !== "003" &&
+  codigo !== "004" &&
+  codigo !== "ESC"
+) {
+  alert("Codigo Invalido");
+  codigo = prompt(
+    "Ingrese un codigo valido o escriba ESC para cancelar la compra"
+  );
+}
 if (codigo == "001" || codigo == "002" || codigo == "003" || codigo == "004") {
   while (codigo !== "ESC") {
     switch (codigo) {
@@ -22,6 +33,7 @@ if (codigo == "001" || codigo == "002" || codigo == "003" || codigo == "004") {
         break;
       default:
         precio = 0;
+        alert("Codigo incorrecto. Vuelva a ingresar un codigo valido");
         break;
     }
     total = total + precio;
@@ -33,8 +45,13 @@ if (codigo == "001" || codigo == "002" || codigo == "003" || codigo == "004") {
   alert("el precio total a pagar es de $" + total);
 
   let formaDePago = prompt("Ingrese cantidad de cuotas(1/6/12)");
-  let cuotas = 0;
-
+  let cuotas = 1;
+  while (formaDePago !== "1" && formaDePago !== "6" && formaDePago !== "12") {
+    alert(
+      "La cantidad de cuotas ingresada es incorrecta. Por favor elija entre 1, 6 y 12"
+    );
+    formaDePago = prompt("Ingrese cantidad de cuotas (1/6/12)");
+  }
   switch (formaDePago) {
     case "1":
       cuotas = 1;
@@ -59,6 +76,4 @@ if (codigo == "001" || codigo == "002" || codigo == "003" || codigo == "004") {
   alert("GRACIAS POR SU COMPRA");
 } else if (codigo == "ESC") {
   alert("COMPRA CANCELADA");
-} else {
-  codigo = prompt("CODIGO INVALIDO");
 }
